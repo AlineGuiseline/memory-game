@@ -22,6 +22,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 .stats {
@@ -40,4 +41,24 @@ body {
   width: calc(25% - .3125rem);
   aspect-ratio: 1; /* coloca a altura baseada na largura */
   background-color: #8234e9;
+  border: 2px solid #5a0caf;
+  border-radius: .75rem;
+  background-image: url(./assets/lines.svg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.revealed {
+  background-color: #fff;
+  border-color: #dadada;
+}
+
+.card-emoji {
+  font-size: 1.875rem;
+  display: none;
+}
+
+.revealed .card-emoji {
+  display: block;
 }
