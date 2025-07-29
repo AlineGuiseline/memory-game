@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.game-container {
+  min-width: 34rem;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stats {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.cards-grid {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3125rem;
+}
+
+.card {
+  width: calc(25% - .3125rem);
+  aspect-ratio: 1; /* coloca a altura baseada na largura */
+  background-color: #8234e9;
+}
