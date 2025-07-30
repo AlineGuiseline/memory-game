@@ -159,6 +159,8 @@ function handleCardClick(cardElement, card) {
         }
       });
 
+      resetRevealedCards();
+
       // verifica se tem itens para encontrar
       const toFind = cardItems.find((item) => item.matched === false);
 
@@ -170,14 +172,17 @@ function handleCardClick(cardElement, card) {
       setTimeout(() => {
         firstCard.cardElement.classList.remove("revealed");
         secondCard.cardElement.classList.remove("revealed");
+
+        resetRevealedCards();
       }, 1000);
     }
-
-    flippedCards = []; // limpa o array de cartas viradas
-    isCheckingPair = false; // libera o jogo para novas jogadas
-    updateStats();
-    console.log(cardItems);
   }
+}
+
+function resetRevealedCards() {
+  flippedCards = []; // limpa o array de cartas viradas
+  isCheckingPair = false; // libera o jogo para novas jogadas
+  updateStats();
 }
 
 function updateStats() {
