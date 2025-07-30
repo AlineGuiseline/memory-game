@@ -186,4 +186,29 @@ function updateStats() {
   } de ${attempts} ${attempts === 1 ? "tentativa" : "tentativas"}`;
 }
 
-renderCards();
+// função para reiniciar o jogo
+function resetGame() {
+  flippedCards = [];
+  matchedPairs = 0;
+  attempts = 0;
+  isCheckingPair = false;
+
+  // reseta o estado das cartas
+  cardItems.forEach((item) => {
+    item.matched = false;
+  });
+
+  // atualiza as estatísticas
+  updateStats();
+
+  // renderiza as cartas novamente
+  renderCards();
+}
+
+function initGame() {
+  renderCards();
+
+  document.getElementById("reset").addEventListener("click", resetGame);
+}
+
+initGame();
