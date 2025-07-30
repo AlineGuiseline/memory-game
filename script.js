@@ -155,11 +155,11 @@ function handleCardClick(cardElement, card) {
       setTimeout(() => {
         firstCard.cardElement.classList.remove("revealed");
         secondCard.cardElement.classList.remove("revealed");
-        flippedCards = []; // limpa o array de cartas viradas
-        isCheckingPair = false; // libera o jogo para novas jogadas
       }, 1000);
     }
 
+    flippedCards = []; // limpa o array de cartas viradas
+    isCheckingPair = false; // libera o jogo para novas jogadas
     updateStats();
   }
 }
@@ -167,7 +167,7 @@ function handleCardClick(cardElement, card) {
 function updateStats() {
   document.getElementById("stats").textContent = `${matchedPairs} ${
     matchedPairs === 1 ? "acerto" : "acertos"
-  } de ${attempts} tentativas`;
+  } de ${attempts} ${attempts === 1 ? "tentativa" : "tentativas"}`;
 }
 
 renderCards();
