@@ -88,6 +88,7 @@ const cardItems = [
   },
 ];
 
+// Função para embaralhar as cartas
 function shuffleCards(array) {
   const shuffled = array.sort(() => (Math.random() > 0.5 ? 1 : -1)); // gera um número aleatório entre 0 e 1, se for maior que 0.5 retorna 1, senão retorna -1
   // positivo vai depois; negativo vai antes
@@ -96,5 +97,32 @@ function shuffleCards(array) {
   return shuffled;
 }
 
-const cards = shuffleCards(cardItems);
-console.log(cards);
+function createCard(card) {
+  // cria o elemento principal da carta
+  const cardElement = document.createElement("div");
+  cardElement.className = "card";
+
+  // cria o elemento do emoji
+  const emoji = document.createElement("span");
+  emoji.className = "card-emoji";
+  emoji.textContent = card.content;
+
+  // adiciona o emoji ao card
+  cardElement.appendChild(emoji);
+
+  return cardElement;
+}
+
+function renderCards() {
+  const deck = document.getElementById("deck");
+  deck.innerHTML = "";
+
+  const cards = shuffleCards(cardItems);
+
+  cards.forEach((item) => {
+    const cardElement = createCard(item);
+    deck.appendChild(cardElement);
+  });
+}
+
+renderCards();
