@@ -47,11 +47,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .revealed {
   background-color: #fff;
   border-color: #dadada;
+  cursor: not-allowed;
 }
 
 .card-emoji {

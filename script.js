@@ -110,6 +110,11 @@ function createCard(card) {
   // adiciona o emoji ao card
   cardElement.appendChild(emoji);
 
+  // adiciona o evento de clique ao card
+  cardElement.addEventListener("click", () => {
+    handleCardClick(cardElement, card);
+  });
+
   return cardElement;
 }
 
@@ -123,6 +128,26 @@ function renderCards() {
     const cardElement = createCard(item);
     deck.appendChild(cardElement);
   });
+}
+
+function handleCardClick(cardElement, card) {
+  if (isCheckingPair || cardElement.classList.contains("revealed")) {
+    return; // ignora o clique enquanto verifica o par ou se a carta já está virada
+  }
+  // revela a carta
+  cardElement.classList.add("revealed");
+
+  // adiciona no array as cartas viradas
+  flippedCards.push({ cardElement, card });
+
+  // verifica se é a segunda carta virada
+  if (flippedCards.length === 2) {
+    isCheckingPair = true; // trava o jogo
+
+    console.log("já tem duas cartas viradas");
+  } else {
+    console.log("mais carta");
+  }
 }
 
 renderCards();
