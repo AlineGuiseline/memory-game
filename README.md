@@ -22,11 +22,15 @@ Desenvolver um site responsivo utilizando HTML, CSS e JavaScript que permita ao 
 ### ✅ Como usar
 Clone o repositório:
 
-```git clone https://github.com/AlineGuiseline/memory-game```
+```
+git clone https://github.com/AlineGuiseline/memory-game
+```
 
 Acesse a pasta do projeto:
 
-```cd memory-game```
+```
+cd memory-game
+```
 
 Abra o arquivo index.html no navegador.
 
