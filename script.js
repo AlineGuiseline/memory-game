@@ -151,6 +151,21 @@ function handleCardClick(cardElement, card) {
     // verifica se as cartas formam um par
     if (firstCard.card.content === secondCard.card.content) {
       matchedPairs++; // incrementa o contador de pares encontrados
+
+      // marca as cartas como encontradas
+      cardItems.forEach((item) => {
+        if (item.content === firstCard.card.content) {
+          item.matched = true;
+        }
+      });
+
+      // verifica se tem itens para encontrar
+      const toFind = cardItems.find((item) => item.matched === false);
+
+      // se não encontrar mais itens, exibe mensagem de vitória
+      if (!toFind) {
+        alert("Parabéns! Você encontrou todos os pares!");
+      }
     } else {
       setTimeout(() => {
         firstCard.cardElement.classList.remove("revealed");
@@ -161,6 +176,7 @@ function handleCardClick(cardElement, card) {
     flippedCards = []; // limpa o array de cartas viradas
     isCheckingPair = false; // libera o jogo para novas jogadas
     updateStats();
+    console.log(cardItems);
   }
 }
 
