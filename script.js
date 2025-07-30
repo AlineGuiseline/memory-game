@@ -143,13 +143,14 @@ function handleCardClick(cardElement, card) {
   // verifica se é a segunda carta virada
   if (flippedCards.length === 2) {
     isCheckingPair = true; // trava o jogo
+    attempts++; // incrementa o contador de tentativas
 
     // selecionar as cartas viradas
     const [firstCard, secondCard] = flippedCards;
 
     // verifica se as cartas formam um par
     if (firstCard.card.content === secondCard.card.content) {
-      console.log("igual");
+      matchedPairs++; // incrementa o contador de pares encontrados
     } else {
       setTimeout(() => {
         firstCard.cardElement.classList.remove("revealed");
@@ -158,7 +159,15 @@ function handleCardClick(cardElement, card) {
         isCheckingPair = false; // libera o jogo para novas jogadas
       }, 1000);
     }
+
+    updateStats();
   }
+}
+
+function updateStats() {
+  document.getElementById("stats").textContent = `${matchedPairs} ${
+    matchedPairs === 1 ? "acerto" : "acertos"
+  } de ${attempts} tentativas`;
 }
 
 renderCards();
