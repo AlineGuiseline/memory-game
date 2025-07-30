@@ -144,9 +144,20 @@ function handleCardClick(cardElement, card) {
   if (flippedCards.length === 2) {
     isCheckingPair = true; // trava o jogo
 
-    console.log("já tem duas cartas viradas");
-  } else {
-    console.log("mais carta");
+    // selecionar as cartas viradas
+    const [firstCard, secondCard] = flippedCards;
+
+    // verifica se as cartas formam um par
+    if (firstCard.card.content === secondCard.card.content) {
+      console.log("igual");
+    } else {
+      setTimeout(() => {
+        firstCard.cardElement.classList.remove("revealed");
+        secondCard.cardElement.classList.remove("revealed");
+        flippedCards = []; // limpa o array de cartas viradas
+        isCheckingPair = false; // libera o jogo para novas jogadas
+      }, 1000);
+    }
   }
 }
 
